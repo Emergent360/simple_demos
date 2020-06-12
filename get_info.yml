@@ -5,6 +5,9 @@
     - name: Get Running instance Info
       ec2_instance_info:
         region: us-east-1
+        filters:
+          "tag:Name": tower
+
       register: ec2info 
     - name: Print info
       debug: var="ec2info.instances"
