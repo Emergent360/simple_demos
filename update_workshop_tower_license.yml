@@ -1,7 +1,7 @@
 ---
 
 - name: "Update workshop tower license"
-  hosts: localhost
+  hosts: all
   gather_facts: yes
 
   roles:
