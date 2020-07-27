@@ -2,6 +2,7 @@
 
 - name: "Update workshop tower license"
   hosts: all
+  connection: local
   gather_facts: no
 
   roles:
