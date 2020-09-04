@@ -4,13 +4,12 @@
   tasks:
   - name: check for subscription status
     block:
-      - command: /usr/bin/subscription-manager status
-        become: yes
-        register: result
-        ignore_errors: yes
-        changed_when: False
-        
-      rescue:
-        -fail:
-            msg: "{{ result.stdout_lines }}"
-          
+      - debug:
+          msg: 'I execute normally'
+      - name: i force a failure
+        command: /bin/false
+      - debug:
+          msg: 'I never execute, due to the above task failing, :-('
+    rescue:
+      - debug:
+          msg: 'I caught an error, can do stuff here to fix it, :-)'
