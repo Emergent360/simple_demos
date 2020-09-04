@@ -6,6 +6,7 @@
       become: yes
       register: result
       failed_when: result.rc >= 2
+      changed_when: False
     
     - debug:
         msg: "{{ result }}"
