@@ -3,13 +3,13 @@
   gather_facts: false
   tasks:
   - block:
-      - command: /usr/bin/subscription-manager status
-        become: yes
-        register: result
-        ignore_errors: yes
-        changed_when: False
+    - command: /usr/bin/subscription-manager status
+      become: yes
+      register: result
+      ignore_errors: yes
+      changed_when: False
       
     rescue:
-      -fail:
-          msg: "{{ result.stdout_lines }}"
+    -fail:
+        msg: "{{ result.stdout_lines }}"
         
