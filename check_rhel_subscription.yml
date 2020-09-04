@@ -9,4 +9,4 @@
         become: yes
     rescue:
       - debug:
-          msg: 'I caught an error, can do stuff here to fix it, :-)'
+          msg: "failed result: {{ ansible_failed_result }}"
