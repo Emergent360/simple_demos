@@ -5,8 +5,8 @@
     - command: /usr/bin/subscription-manager status
       become: yes
       register: result
-      failed_when: result.rc >= 2
+      ignore_errors: yes
       changed_when: False
     
     - debug:
-        msg: "{{ result }}"
+        msg: "{{ result.stdout_lines }}"
