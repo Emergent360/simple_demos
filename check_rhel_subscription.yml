@@ -2,11 +2,15 @@
 - hosts: all
   gather_facts: false
   tasks:
-    - command: /usr/bin/subscription-manager status
-      become: yes
-      register: result
-      ignore_errors: yes
-      changed_when: False
-    
-    - debug:
-        msg: "{{ result.stdout_lines }}"
+    block:
+      - command: /usr/bin/subscription-manager status
+        become: yes
+        register: result
+        ignore_errors: yes
+        changed_when: False
+      
+      - debug:
+          msg: "{{ result.stdout_lines }}"
+      
+      - fail:
+          when: result.rc == 1
