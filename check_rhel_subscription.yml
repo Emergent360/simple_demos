@@ -9,7 +9,7 @@
       ignore_errors: yes
       changed_when: False
       
-  rescue:
-    -fail:
-        msg: "{{ result.stdout_lines }}"
+    rescue:
+      -fail:
+          msg: "{{ result.stdout_lines }}"
         
