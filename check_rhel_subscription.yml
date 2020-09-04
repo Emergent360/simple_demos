@@ -4,12 +4,9 @@
   tasks:
   - name: check for subscription status
     block:
-      - debug:
-          msg: 'I execute normally'
-      - name: i force a failure
-        command: /bin/false
-      - debug:
-          msg: 'I never execute, due to the above task failing, :-('
+      - name: check status
+        command: /usr/bin/subscription-manager status
+        become: yes
     rescue:
       - debug:
           msg: 'I caught an error, can do stuff here to fix it, :-)'
