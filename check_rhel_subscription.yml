@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+    - command: /usr/bin/subscription-manager status
+      become: yes
+      register: result
+    
+    - debug:
+        msg: "{{ result }}"
