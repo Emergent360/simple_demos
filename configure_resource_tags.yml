@@ -1,0 +1,8 @@
+---
+
+- name: Configure resource tags
+  hosts: all
+  gather_facts: no
+
+  roles:
+  - configure_resource_tags
