@@ -8,3 +8,4 @@
       file:
         path: /etc/ansible/hosts-test
         state: absent
+      become: yes
