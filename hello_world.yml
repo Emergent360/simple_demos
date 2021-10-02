@@ -3,3 +3,8 @@
   gather_facts: false
   tasks:
     - ping:
+
+    - name: test
+      file:
+        path: /etc/ansible/hosts-test
+        state: absent
