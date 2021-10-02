@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: true
+  tasks:
+    - ping:
+
+    - name: test
+      file:
+        path: /etc/ansible/hosts-test
+        state: absent
+      become: yes
